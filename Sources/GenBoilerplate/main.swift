@@ -50,7 +50,7 @@ func generateVectors(toDir outputDir:String, vectorTemplatePath: String) {
     let templateName = (vectorTemplatePath as NSString).lastPathComponent
     
     for vType in vectorTypes {
-        let outputPath = outputDir + "/\(vType.typeName)+SIMDExtensions-new.swift"
+        let outputPath = outputDir + "/\(vType.typeName)+SIMDExtensions.swift"
         
         var environment = stencilSwiftEnvironment()
         environment.loader = FileSystemLoader(paths: [Path(templatePath)])
@@ -92,5 +92,5 @@ let main = command ( Argument<String>("outputDir", description: "The output dire
                         generateFiles(toDir: outputDir, vectorTemplatePath: vectorTemplatePath)
 }
 
-//main.run()
-generateVectors(toDir: "./", vectorTemplatePath: "./templates/vectorTemplate.stencil")
+main.run()
+//generateVectors(toDir: "./", vectorTemplatePath: "./templates/vectorTemplate.stencil")
